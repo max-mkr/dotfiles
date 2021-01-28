@@ -1,5 +1,5 @@
 # Dotfiles
-Configs syncronisation repository.
+Configs syncronisation repository. You can grab my configs for applications or sync.sh bash script.
 
 # Warnings
 This script is provided as is, without any warranty (see LICENSE for more). Do not rely solely on the script to do your job. Check what it is doing. It is recomended to test the behaviour on sample files.
