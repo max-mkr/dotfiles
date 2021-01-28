@@ -3,13 +3,15 @@
 config=("$HOME/.config/alacritty/alacritty.yml"
 	"$HOME/.config/i3/config"
 	"$HOME/.config/i3/kb-layout.sh"
-	"$HOME/.emacs")
+	"$HOME/.emacs"
+	"$HOME/.bashrc")
 
 
 repo=("alacritty/alacritty.yml"
       "i3/config"
       "i3/kb-layout.sh"
-      "emacs/.emacs")
+      "emacs/.emacs"
+      "bash/.bashrc")
 
 # affix is appended to backup names
 affix="~"
