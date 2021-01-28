@@ -43,15 +43,18 @@ ACTION="none"
 SELECT="all"
 VERBOSE=false
 
-# options:
-# i - import (git -> repoination)
-# e - export (repoination -> git)
-# v - verbose (prompt before doing)
-# s - select by number
-# l - list tracked files
-# L - list files by number
+help()
+{
+    echo " i - import (this/folder -> config)"
+    echo " e - export (config -> this/folder)"
+    echo " v - verbose (prompt before doing)"
+    echo " s - select by number"
+    echo " l - list all tracked files"
+    echo " L - list files by number"
+    echo " h - display help and exit"
+}
 
-while getopts ":ievs:L:l" options
+while getopts ":ievs:L:lh" options
 do
     case "${options}" in
 	i) setaction
@@ -66,6 +69,9 @@ do
 	   ;;
 	L) setaction
 	   SELECT="${OPTARG}"
+	   ;;
+	h) help
+	   exit 0
 	   ;;
     esac
 done
@@ -94,7 +100,7 @@ showFilePair()
 {
     if [[ -v position ]]
     then
-	echo "${config[$position]} -- ${repo[$position]}"
+	echo $"$position: ${config[$position]} -- ${repo[$position]}"
     fi
 }
 
@@ -146,6 +152,7 @@ export_files()
 
 list_files()
 {
+    echo "config -- this/folder"
     if [ "$SELECT" == "all" ]
     then
 	for ((i=0; i<length; i++))
